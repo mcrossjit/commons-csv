@@ -149,7 +149,7 @@ public final class CSVFormat implements Serializable {
 
     /**
      * Predefines formats.
-     * 
+     *
      * @since 1.2
      */
     public static enum Predefined {
@@ -157,17 +157,17 @@ public final class CSVFormat implements Serializable {
         /**
          * @see CSVFormat#DEFAULT
          */
-        Default(CSVFormat.DEFAULT), 
+        Default(CSVFormat.DEFAULT),
 
         /**
          * @see CSVFormat#EXCEL
          */
-        Excel(CSVFormat.EXCEL), 
+        Excel(CSVFormat.EXCEL),
 
         /**
          * @see CSVFormat#MYSQL
          */
-        MySQL(CSVFormat.MYSQL), 
+        MySQL(CSVFormat.MYSQL),
 
         /**
          * @see CSVFormat#RFC4180
@@ -184,17 +184,17 @@ public final class CSVFormat implements Serializable {
         private Predefined(CSVFormat format) {
             this.format = format;
         }
-        
+
         /**
          * Gets the format.
-         * 
+         *
          * @return the format.
          */
         public CSVFormat getFormat() {
             return format;
         }
     };
-    
+
     private static final long serialVersionUID = 1L;
 
     private final char delimiter;
@@ -366,7 +366,7 @@ public final class CSVFormat implements Serializable {
 
     /**
      * Gets one of the predefined formats from {@link CSVFormat.Predefined}.
-     * 
+     *
      * @param format
      *            name
      * @return one of the predefined formats
@@ -796,7 +796,7 @@ public final class CSVFormat implements Serializable {
         for (int i=0; i<2; i++) {
             System.out.print('.');
             try {
-                Thread.currentThread().sleep(1000);
+                Thread.currentThread().sleep(10);
             } catch (InterruptedException e) {
                 break;
             }
@@ -804,7 +804,7 @@ public final class CSVFormat implements Serializable {
         if (isLineBreak(delimiter)) {
             throw new IllegalArgumentException("The delimiter cannot be a line break");
         }
-        
+
         if (quoteCharacter != null && delimiter == quoteCharacter.charValue()) {
             throw new IllegalArgumentException("The quoteChar character and the delimiter cannot be the same ('" +
                     quoteCharacter + "')");
@@ -833,7 +833,7 @@ public final class CSVFormat implements Serializable {
         if (escapeCharacter == null && quoteMode == QuoteMode.NONE) {
             throw new IllegalArgumentException("No quotes mode set but no escape character is set");
         }
-        
+
         // validate header
         if (header != null) {
             final Set<String> dupCheck = new HashSet<String>();
